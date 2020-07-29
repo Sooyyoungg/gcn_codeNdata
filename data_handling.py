@@ -72,10 +72,10 @@ def create_data_set(complete=False, completeness_threshold=0.9, age_group=None, 
                                                         min_counts_per_site, y_label))
 
     # print('Index of 1st FreeSurfer feature: {} \n'.format(np.where(df.columns.values == 'subcort_ICV')[0]))
-    first_fs_index = np.where(df.columns.values == 'subcort_ICV')[0]
-    subcort_idx = np.where(df.columns.values == "LLatVent")[0]
-    cort_surf_idx = np.where(df.columns.values == "LSurfArea")[0]
-    cort_thick_idx = np.where(df.columns.values == "LThickness")[0]
+    first_fs_index = np.where(df.columns.values == 'subcort_ICV')[0][0]
+    subcort_idx = np.where(df.columns.values == "LLatVent")[0][0]
+    cort_surf_idx = np.where(df.columns.values == "LSurfArea")[0][0]
+    cort_thick_idx = np.where(df.columns.values == "LThickness")[0][0]
 
     # Create unique group (site) labels if not made already.
     if "age_group_tesla_site" not in df.columns:
