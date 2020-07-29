@@ -150,7 +150,7 @@ def create_data_set(complete=False, completeness_threshold=0.9, age_group=None, 
     sites, inverse, counts = np.unique(groups, return_inverse=True, return_counts=True)
     tmp_df.loc[:, "age_group_tesla_site"] = inverse
 
-    X = tmp_df.loc[:, fs_labels].as_matrix()
+    X = tmp_df.loc[:, fs_labels].to_numpy()
     y = tmp_df.loc[:, y_label].values.astype(int)
     C = tmp_df.loc[:, covariates].values if covariates else np.array([]).reshape((X.shape[0], 0))
 
