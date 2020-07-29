@@ -3,8 +3,11 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
-CSV_PATH = os.path.join("/data/wbbruin/Desktop/ENIGMA_ML_BENCHMARK", "Data",
-                        "ENIGMA_OCD_26-01-2019.csv")  # Set this path accordingly
+# CSV_PATH = os.path.join("/data/wbbruin/Desktop/ENIGMA_ML_BENCHMARK", "Data",
+#                         "ENIGMA_OCD_26-01-2019.csv")  # Set this path accordingly
+
+CSV_PATH=os.path.join('./dat/', "ENIGMA_OCD_26-01-2019.csv")
+#CSV_PATH=os.path.join('./dat/', "ENIGMA_OCD_RATIO_SCALE_2.csv")
 
 
 def ensure_folder(folder_dir):
