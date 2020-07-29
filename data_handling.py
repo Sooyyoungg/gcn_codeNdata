@@ -114,11 +114,13 @@ def create_data_set(complete=False, completeness_threshold=0.9, age_group=None, 
 
     if complete:
         # Remove subjects that miss ANY feature
-        tmp_df = df[~df.loc[:, np.append(y_label, all_selected_features)].T.isnull().any()]
+        #tmp_df = df[~df.loc[:, np.append(y_label, all_selected_features)].T.isnull().any()]
+        tmp_df = df[~df.reindex(columns = np.append(y_label, all_selected_features)).T.isnull().any()]
     else:
         # Remove subjects that miss target label
         n_ = df.shape[0]
-        tmp_df = df[~df.loc[:, [y_label]].T.isnull().any()]
+        #tmp_df = df[~df.loc[:, [y_label]].T.isnull().any()]
+        tmp_df = df[~df.reindex(columns = y_label).T.isnull().any()]
         if verbose:
             print('Subjects excluded with missing target label ({}) : {} out of {} \n \n'.format(y_label,
                                                                                                  n_ - tmp_df.shape[0],
